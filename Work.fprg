@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="hakan"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-10-05 02:38:35 "/>
+        <attribute name="created" value="aGFrYW47SEFLSU1PVE87MjAyMC0xMC0wNTsiMTA6NTk6NDIgIjsyMzA1"/>
+        <attribute name="edited" value="aGFrYW47SEFLSU1PVE87MjAyMC0xMC0wNTsiMDI6Mzg6MzUgIjs0OzI0MTY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="over, under, value, time" type="Integer" array="False" size=""/>
+            <assign variable="time" expression="40"/>
+            <assign variable="over" expression="0"/>
+            <assign variable="under" expression="0"/>
+            <input variable="value"/>
+            <while expression="value &gt; 0">
+                <if expression="value &gt; time">
+                    <then>
+                        <assign variable="over" expression="over +(value - time)"/>
+                    </then>
+                    <else>
+                        <if expression="under &lt; time">
+                            <then>
+                                <assign variable="under" expression="under +(time - value)"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+                <input variable="value"/>
+            </while>
+            <output expression="&quot;&#220;berstunden: &quot; &amp; over" newline="True"/>
+            <output expression="&quot;Minusstunden: &quot; &amp; under" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
